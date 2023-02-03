@@ -1,1 +1,33 @@
 /* BASIC STYLES HERE */
+
+#main-container{
+  height: 60vh;
+}
+
+#default-container{
+  height: 60vh;
+}
+
+#doc-info-container{
+  background-color: rgba(0, 255, 255, 0.254);
+}
+
+#text-area{
+  min-height: 60vh;
+  height: 100%;
+  width: 100%;
+  resize: none;
+  overflow-y: scroll;
+}
+
+#dot-img{
+  font-size: .5em;
+}
+
+p{
+  margin: 0;
+}
+
+.card-bg{
+  background-color: antiquewhite;
+}
