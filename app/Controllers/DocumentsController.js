@@ -1,5 +1,5 @@
 import { appState } from "../AppState.js";
-import { setHTML } from "../Utils/Writer.js";
+import { removeAttributes, setAttributes, setHTML } from "../Utils/Writer.js";
 import { getFormData } from "../Utils/FormHandler.js";
 import { documentService } from "../Services/DocumentsService.js"
 
@@ -19,9 +19,12 @@ export class DocumentsController{
   }
 
   // STUB for the Document
-  drawDocument(){
+  drawDocument(id){
+    documentService.drawDocument(id)
     let template = appState.document.documentHTML
     setHTML('main-container', template)
+    removeAttributes('main-container', 'hidden')
+    setAttributes('default-container', 'hidden', 'true')
   }
 
   // STUB create & delete

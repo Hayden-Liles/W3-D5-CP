@@ -20,3 +20,11 @@ export function setHTML(id, html) {
 export function setText(id, text) {
   getElem(id).innerText = text
 }
+
+export function setAttributes(id, attribute, value) {
+  getElem(id).setAttribute(attribute, value)
+}
+
+export function removeAttributes(id, attribute) {
+  getElem(id).removeAttribute(attribute)
+}

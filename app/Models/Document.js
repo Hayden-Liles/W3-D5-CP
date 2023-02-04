@@ -15,7 +15,7 @@ export class Document{
     return`
     <div class="card d-flex justify-content-center text-center">
           <div class="d-flex card-bg align-items-center">
-            <i class="fa-solid fa-circle px-2 fs-3" id="dot-img" style="color: ${this.color}"></i>
+            <i class="fa-solid fa-circle px-2 fs-3" id="dot-img" style="color: ${this.color}" onclick="app.documentsController.drawDocument('${this.id}')"></i>
             <p class="p-1 ps-2 d-flex">${this.title}</p>
             <button class="ms-auto btn btn-md btn-danger" onclick="app.documentsController.deleteDocument('${this.id}')">Delete</button>
           </div>
@@ -30,7 +30,7 @@ export class Document{
         <div>
           <p>${this.title}</p>
           <p>Created: ${this.dateCreated}</p>
-          <p>Updated: ${this.dateUpdated}</p>
+          <p>Last Updated: ${this.dateUpdated}</p>
         </div>
       </div>
       <div class="col-7 text-center">
