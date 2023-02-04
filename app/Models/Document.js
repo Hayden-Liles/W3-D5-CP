@@ -14,8 +14,12 @@ export class Document{
   get documentsHTML(){
     return`
     <div class="card d-flex justify-content-center text-center">
-      <p class="p-1 ps-2 card-bg">${this.name}<i class="fa-solid fa-circle-dot px-2" id="dot-img" style="color: ${this.color}"></i></p>
-    </div>
+          <div class="d-flex card-bg align-items-center">
+            <i class="fa-solid fa-circle px-2 fs-3" id="dot-img" style="color: ${this.color}"></i>
+            <p class="p-1 ps-2 d-flex">${this.title}</p>
+            <button class="ms-auto btn btn-md btn-danger" onclick="app.documentsController.deleteDocument('${this.id}')">Delete</button>
+          </div>
+        </div>
     `
   }
 

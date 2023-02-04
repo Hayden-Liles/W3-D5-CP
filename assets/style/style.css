@@ -31,3 +31,7 @@ p{
 .card-bg{
   background-color: antiquewhite;
 }
+
+.offcanvas{
+  width: 27rem !important;
+}
