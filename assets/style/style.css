@@ -22,6 +22,11 @@
 
 #dot-img{
   font-size: .5em;
+  transition: all .2s ease-in-out;
+}
+#dot-img:hover{
+  transform: scale(1.1);
+  opacity: 80%; 
 }
 
 p{

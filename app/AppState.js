@@ -1,3 +1,4 @@
+import { Document } from "./Models/Document.js"
 import { Value } from "./Models/Value.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
@@ -8,7 +9,7 @@ class AppState extends EventEmitter {
   values = loadState('values', [Value])
 
   /** @type {import('./Models/Document').Document[]} */
-  documents = []
+  documents = loadState('documents', [Document])
 
   /** @type {import('./Models/Document').Document} */
   document = null

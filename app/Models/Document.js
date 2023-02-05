@@ -26,16 +26,20 @@ export class Document{
   get documentHTML(){
     return`
     <div class="row bg-dark mt-5 py-5 justify-content-center">
-      <div class="col-3 pt-2" id="doc-info-container">
-        <div>
-          <p>${this.title}</p>
-          <p>Created: ${this.dateCreated}</p>
-          <p>Last Updated: ${this.dateUpdated}</p>
+      <form class="d-flex justify-content-center" onsubmit="app.documentsController.saveDocument()">
+        <div class="col-3 p-2" id="doc-info-container">
+          <div>
+            <button class="btn btn-md btn-success mb-2" type="submit">SAVE</button>
+            <p class="fs-4 fw-bold">${this.title}<i class="fa-solid fa-circle px-2 fs-3 text-${this.color}"
+                style="color: ${this.color}"></i></p>
+            <p class="">Created: ${this.dateCreated}</p>
+            <p class="">Last Updated: ${this.dateUpdated}</p>
+          </div>
         </div>
-      </div>
-      <div class="col-7 text-center">
-        <textarea name="text-area" id="text-area" cols="70">${this.body}</textarea>
-      </div>
+        <div class="col-7 text-center">
+          <textarea name="body" id="text-area" cols="70">${this.body}</textarea>
+        </div>
+      </form>
     </div>
     `
   }

@@ -1,11 +1,13 @@
 import { appState } from "../AppState.js";
-import { removeAttributes, setAttributes, setHTML } from "../Utils/Writer.js";
+import { removeAttributes, setAttributes, setHTML, setText } from "../Utils/Writer.js";
 import { getFormData } from "../Utils/FormHandler.js";
 import { documentService } from "../Services/DocumentsService.js"
+import { saveState } from "../Utils/Store.js";
 
 
 export class DocumentsController{
   constructor(){
+    this.drawDocuments()
     appState.on('documents', this.drawDocuments)
   }
 
@@ -33,10 +35,18 @@ export class DocumentsController{
     const form = window.event.target
     let formData = getFormData(form)
     documentService.createDocument(formData)
+    setText('doc-header', `Create New Doc: ${appState.documents.length}`)
   }
 
   deleteDocument(id){
     documentService.deleteDocument(id)
+  }
+
+  saveDocument(){
+    window.event.preventDefault()
+    const form = window.event.target
+    let formData = getFormData(form)
+    documentService.saveDocument(formData)
   }
 
 }

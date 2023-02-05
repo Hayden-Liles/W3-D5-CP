@@ -41,22 +41,25 @@
         </div>
       </div>
     </div>
-      <!-- SECTION Main Container -->
-      <div class="container" id="main-container" hidden>
-        <!-- <div class="row bg-dark mt-5 py-5 justify-content-center">
-        <div class="col-3 pt-2" id="doc-info-container">
-          <div>
-            <p>title</p>
-            <p>created at</p>
-            <p>updated at</p>
-            <p>words: 0 charectars: 0</p>
+    <!-- SECTION Main Container -->
+    <div class="container" id="main-container" hidden>
+      <!-- <div class="row bg-dark mt-5 py-5 justify-content-center">
+        <form onsubmit="app.documentsController.saveDocument()">
+          <div class="col-3 pt-2" id="doc-info-container">
+            <div>
+              <button class="btn btn-md btn-success mb-2" type="submit">SAVE</button>
+              <p class="fs-4 fw-bold">${this.title}<i class="fa-solid fa-circle px-2 fs-3 text-black"
+                  style="color: ${this.color}"></i></p>
+              <p class="">Created: ${this.dateCreated}</p>
+              <p class="">Last Updated: ${this.dateUpdated}</p>
+            </div>
           </div>
-        </div>
-        <div class="col-7 text-center">
-          <textarea name="text-area" id="text-area" cols="70"></textarea>
-        </div>
+          <div class="col-7 text-center">
+            <textarea name="text-area" id="text-area" cols="70">${this.body}</textarea>
+          </div>
+        </form>
       </div> -->
-      </div>
+    </div>
   </main>
   <footer class="bg-dark text-light" hidden>
     <div class="text-center no-select">
@@ -69,7 +72,7 @@
   <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="off-canvas"
     aria-labelledby="off-canvas-label">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="off-canvas-label">Create new Document</h5>
+      <h5 class="offcanvas-title" id="doc-header">Create New Document</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
