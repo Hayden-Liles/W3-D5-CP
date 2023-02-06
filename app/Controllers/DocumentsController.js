@@ -3,11 +3,13 @@ import { removeAttributes, setAttributes, setHTML, setText } from "../Utils/Writ
 import { getFormData } from "../Utils/FormHandler.js";
 import { documentService } from "../Services/DocumentsService.js"
 import { saveState } from "../Utils/Store.js";
+import { Pop } from "../Utils/Pop.js";
 
 
 export class DocumentsController{
   constructor(){
     this.drawDocuments()
+    setText('doc-header', `Create New Doc: ${appState.documents.length}`)
     appState.on('documents', this.drawDocuments)
   }
 
@@ -38,8 +40,18 @@ export class DocumentsController{
     setText('doc-header', `Create New Doc: ${appState.documents.length}`)
   }
 
-  deleteDocument(id){
-    documentService.deleteDocument(id)
+  async deleteDocument(id){
+    try {
+      const confirmation = await Pop.confirm('Are you sure you want to delete this?')
+      if(confirmation){
+        documentService.deleteDocument(id)
+        setText('doc-header', `Create New Doc: ${appState.documents.length}`)
+      }else{
+        return
+      }
+    } catch (error) {
+      return
+    }
   }
 
   saveDocument(){
